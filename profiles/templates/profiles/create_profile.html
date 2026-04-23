@@ -11,8 +11,8 @@
 <body>
   <form action="{% url 'create-profile' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <input type="file" name="profile_image" />
-    <button>Upload!</button>
+    {{ form.as_p }}
+    <button type="submit">Upload Profile Image</button>
   </form>
 </body>
 </html>
