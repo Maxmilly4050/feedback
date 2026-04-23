@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.views import View
 
-# Create your views here.
+def store_file(file):
+    with open("temp/uploaded_file.jpg", "wb+") as f:
+        for chunk in file.chunks():
+            f.write(chunk)
 
 
 class CreateProfileView(View):
@@ -10,5 +13,5 @@ class CreateProfileView(View):
 
     def post(self, request):
         profile_image = request.FILES.get("profile_image")
-        print(profile_image)
+        store_file(profile_image)
         return render(request, "profiles/create_profile.html")
