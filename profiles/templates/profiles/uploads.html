@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uploaded Profile Images</title>
+</head>
+<body>
+  <h1>Uploaded Profile Images</h1>
+    <div class="profiles">
+        {% for profile in profiles %}
+        <div class="profile" style="margin-bottom: 20px; border: 1px solid #ccc; padding: 10px; width: 300px;">
+            <img src="{{ profile.image.url }}" alt="Profile Image" style="max-width: 300px; height: auto; align-self: center;">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

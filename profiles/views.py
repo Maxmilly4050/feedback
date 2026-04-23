@@ -19,5 +19,5 @@ class CreateProfileView(View):
     
 class ListProfileView(ListView):
     model = Profile
-    template_name = "profiles/create_profile.html"
+    template_name = "profiles/uploads.html"
     context_object_name = "profiles"
