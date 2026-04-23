@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import View
+
+from profiles.models import Profile
 from .forms import UploadFileForm
 
 def store_file(file):
@@ -16,6 +18,7 @@ class CreateProfileView(View):
     def post(self, request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            profile_image = form.cleaned_data["profile_image"]
-            store_file(profile_image)
+            profile_image = Profile(image=form.cleaned_data["profile_image"])
+            profile_image.save()
+            store_file(profile_image.image)
         return render(request, "profiles/create_profile.html", context={"form": form})
